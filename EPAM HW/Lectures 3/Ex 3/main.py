@@ -1,20 +1,20 @@
-a = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
 
-def b(f_c: str, s_c: str) -> str:
+def play(first_card: str, second_card: str) -> str:
     try:
-        f_n = (a.index(f_c) + 2) % 13
-        s_n = (a.index(s_c) + 2) % 13
-        if (f_n < 1) or (f_n > 9):
-            f_n = 0
-        if (s_n < 1) or (s_n > 9):
-            s_n = 0
-        return str((f_n + s_n) % 10)
+        first_number = (CARDS.index(first_card) + 2) % 13
+        second_number = (CARDS.index(second_card) + 2) % 13
+        if (first_number < 1) or (first_number > 9):
+            first_number = 0
+        if (second_number < 1) or (second_number > 9):
+            second_number = 0
+        return str((first_number + second_number) % 10)
     except ValueError:
-        return 'Do note cheat'
+        return 'Do not cheat!'
 
 
 if __name__ == '__main__':
-    f_c = input('F c:')
-    s_c = input('S c:')
-    print('...', b(f_c, s_c))
+    first_card = str(input('Play first card:'))
+    second_card = str(input('Play second card:'))
+    print('Your result:', play(first_card, second_card))
